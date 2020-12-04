@@ -71,13 +71,14 @@ public class LambdaExample {
 		// 반복문(반복자) : 스트림(반복자)
 		// 스트림 생성-> 소진.
 
-		// 1.여학생 정보 
+// 1.여학생 정보 
 		Stream<Student> stream = list.stream();
 		stream.filter((t) -> t.getSex().equals("FEMALE"))
 				.forEach((t) -> System.out.println(t.getName() + "-" + t.getScore()));
 
 		System.out.println("----------------");
-		//2.80점 초과 학생 Stream 이용하는 방법
+
+//2.80점 초과 학생 Stream 이용하는 방법
 		stream = list.stream();
 		stream.filter(new Predicate<Student>() {
 
