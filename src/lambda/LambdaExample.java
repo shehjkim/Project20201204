@@ -84,7 +84,7 @@ public class LambdaExample {
 
 			@Override
 			public boolean test(Student t) {
-				return t.getScore() > 80;
+				return t.getScore() > 80; // 1차적 필터
 
 			}
 
@@ -96,6 +96,21 @@ public class LambdaExample {
 			}
 
 		});
+		
+		System.out.println("----------------");			
+//3.남학생의 총점
+		int sum1 = list.stream().filter(t -> t.getSex().equals("MALE"))
+				.mapToInt((value) -> value.getScore())
+				.sum();
+		System.out.println("남학생의 총점: " + sum1 );
+		
+		System.out.println("----------------");
+//4.여학생의 평균
+		double avg = list.stream().filter(t -> t.getSex().equals("FEMALE"))
+				.mapToDouble((value) -> value.getScore())
+				.average()
+				.getAsDouble();
+		System.out.println("여학생의 평균: " + avg);
 
 	}
 
